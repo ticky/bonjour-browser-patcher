@@ -23,6 +23,25 @@ This adds a bunch of services which have popped up on Apple and other devices si
 
 Eventually, I hope to convert this from being a raw patch file to being a list of services people can update and edit, but for now patches must be applied to... the patch file.
 
+## Producing the patch
+
+The patch is built by mounting the disk image of the unpatched Bonjour Browser version, whilst having the modified version in `~/Applications`.
+
+The command to create the patch is then as follows:
+
+```bash
+(
+  set -euo pipefail
+  cd ~/Applications
+  diff \
+    --unified \
+    --recursive \
+    --ignore-blank-lines \
+    "/Volumes/Bonjour Browser/Bonjour Browser.app/Contents/Resources" \
+    "./Bonjour Browser.app/Contents/Resources"
+) > bonjour-browser.patch
+```
+
 ## Building the patcher
 
 The patcher is written in AppleScript, and relies upon the `patch` utility being available on the user's computer. You can build a copy of it by checking out the repository and running `build.sh`. The application will be created in an Applications folder under the repository.
