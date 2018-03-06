@@ -6,16 +6,16 @@ Update Bonjour Browser (http://www.tildesoft.com) with new services
 
 ### Automated Patcher
 
-An automated patch program is provided. This expects to be run against a clean version of Bonjour Browser, so either run any earlier patch versions' revert steps, or download it fresh.
+You can download an automatic patching program from [the releases page](https://github.com/ticky/bonjour-browser-patcher/releases). This expects to be run against a clean version of Bonjour Browser, so either run any earlier patch versions again to revert their changes, or download it fresh.
 
-You can then download the zip file, right-click the application and choose "Open", and the patcher will find Bonjour Browser and apply the patch.
+You can then download the zip file, right-click the application and choose "Open", and the patcher will locate Bonjour Browser and apply the patch!
 
 ### Manual
 
 If you're suspicious of the automatic patcher or generally feel okay with using the command line, you can do the following:
 
 1. Open a terminal to the directory in which Bonjour Browser is installed
-2. Run `patch -p1 -i /path/to/bonjour-browser.patch`
+2. Run `curl https://raw.githubusercontent.com/ticky/bonjour-browser-patcher/develop/bonjour-browser.patch -sSf | patch -p1 -i /path/to/bonjour-browser.patch`
 
 ## Changes
 
